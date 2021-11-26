@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,29 @@
     <link rel="stylesheet" href="css/style.css">
     <title>home</title>
 </head>
+
 <body>
-    <h1>Welcome to your new site!</h1>
-    <p>To help you get accustomed we already made some simple html tags and css styling for you! Poke around and customize as you wish!</p>
+
+
+    <form action="javascript:void(0)">
+        <input type="text" id="post_title">
+        <textarea id="post_body" cols="30" rows="10"></textarea>
+        <input type="submit" value="Make Post" id="post_submit">
+    </form>
+    <section id="post_section">
+    </section>
+    <section id="patch_section">
+
+    </section>
+    <section id="delete_section">
+
+    </section>
+    <section id="get_section">
+
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
