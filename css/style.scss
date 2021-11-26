@@ -1,3 +1,10 @@
-@import 'global';
-@import 'header';
-@import 'footer';
+@import "global";
+@import "header";
+@import "footer";
+
+form {
+    display: grid;
+    place-items: center;
+    position: relative;
+    top: 25vh;
+}

@@ -58,10 +58,32 @@ axios.request({
     method: "DELETE"
 }).then(delete_success).catch(delete_failure);
 
+function get_success(response) {
+    console.log(response);
+    var card_section = document.createElement('section');
+    for (var i = 0; i < response.data.length; i++) {
 
+        var card_title = document.createElement('h1');
+        var card_body = document.createElement('p');
 
+        card_title.innerText = response.data[i].title;
+        card_body.innerText = response.data[i].body;
+        card_section.appendChild(card_title);
+        card_section.appendChild(card_body);
+        get_section.appendChild(card_section);
+    }
 
+}
 
+function get_failure(error) {
+    var get_error_message = document.createElement('h1');
+    get_error_message.innerText = "Sorry Error";
+    get_section.appendChild(get_error_message);
+}
+
+axios.request({
+    url: 'https://jsonplaceholder.typicode.com/posts',
+}).then(get_success).catch(get_failure);
 
 
 var post_section = document.getElementById('post_section');
