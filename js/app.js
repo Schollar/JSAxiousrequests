@@ -27,7 +27,6 @@ function form_submit() {
 
 }
 
-
 function patch_success(response) {
     console.log(response);
 }
@@ -43,6 +42,28 @@ axios.request({
         title: "New Title"
     }
 }).then(patch_success).catch(patch_error);
+
+function delete_success(response) {
+    console.log(response);
+}
+
+function delete_failure(error) {
+    var delete_error_message = document.createElement('h1');
+    delete_error_message.innerText = "Sorry Error";
+    delete_section.appendChild(delete_error_message);
+}
+
+axios.request({
+    url: 'https://jsonplaceholder.typicode.com/posts/1',
+    method: "DELETE"
+}).then(delete_success).catch(delete_failure);
+
+
+
+
+
+
+
 var post_section = document.getElementById('post_section');
 var patch_section = document.getElementById('patch_section');
 var post_section = document.getElementById('delete_section');
