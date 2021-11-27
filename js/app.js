@@ -65,27 +65,22 @@ axios.request({
 }).then(delete_success).catch(delete_failure);
 // This is for the comments section, I have it working halfway/ it changes the comment instead of posting all of them and its hardcoded only to post 1
 function comments_success(response_comments) {
-    var comments_section = document.createElement('section');
-    comments_section.innerText = "Comments";
-    var comments_name_tag = document.createElement('h5');
-    var comments_tag = document.createElement('p');
-    comments_section.appendChild(comments_name_tag);
-    comments_section.appendChild(comments_tag);
     for (var i = 0; i < response_comments.data.length; i++) {
-
-        get_parent_tag = document.getElementById('1');
+        var comments_section = document.createElement('section');
+        var comments_name_tag = document.createElement('h5');
+        var comments_tag = document.createElement('p');
+        get_parent_tag = document.getElementById(response_comments.data[i].postId);
         comments_name_tag.innerText = response_comments.data[i].name;
         comments_tag.innerText = response_comments.data[i].body;
-        comments_section.setAttribute('postId', `${i}`);
+        comments_section.appendChild(comments_name_tag);
+        comments_section.appendChild(comments_tag);
         get_parent_tag.appendChild(comments_section);
 
     }
 
 }
 // Our API call to get the comments
-axios.request({
-    url: `https://jsonplaceholder.typicode.com/posts/1/comments`
-}).then(comments_success).catch(get_failure);
+
 
 // Function that shows all the posts on a successful GET request
 function get_success(response) {
@@ -103,7 +98,9 @@ function get_success(response) {
         get_section.appendChild(card_section);
 
     }
-
+    axios.request({
+        url: `https://jsonplaceholder.typicode.com/comments`
+    }).then(comments_success).catch(get_failure);
 }
 // Generic error message if GET request fails
 function get_failure(error) {
