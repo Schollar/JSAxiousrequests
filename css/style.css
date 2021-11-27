@@ -20,11 +20,23 @@ img, iframe {
   place-items: center;
 }
 
+#page_container {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  row-gap: 50px;
+}
+
 form {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  position: relative;
-  top: 25vh;
+}
+
+section {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  row-gap: 50px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,9 +2,18 @@
 @import "header";
 @import "footer";
 
+#page_container {
+    display: grid;
+    place-items: center;
+    row-gap: 50px;
+}
 form {
     display: grid;
     place-items: center;
-    position: relative;
-    top: 25vh;
+}
+
+section {
+    display: grid;
+    place-items: center;
+    row-gap: 50px;
 }
